@@ -1,0 +1,146 @@
+.sidebar {
+  width: 230px;
+  overflow-y: scroll;
+  height: 100vh;
+  //   padding: 16px;
+}
+.space {
+  margin-bottom: 400px;
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.container-fluid {
+  padding-right: 0;
+}
+
+.nav-link {
+  font-family: Silka;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(252, 253, 254, 0.6);
+}
+.nav-item {
+  cursor: pointer;
+  margin-right: 16px;
+  margin-left: 16px;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 18px 22px;
+
+  &:hover,
+  &:focus,
+  &.active,
+  .uneditable-input:focus {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+.footer {
+  text-align: center;
+  padding: 50px 40px 0px 40px;
+  border-top: 0.909581px solid rgb(255, 255, 255, 0.08);
+
+  h4 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #ffffff;
+  }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .chart_bg {
+    margin-bottom: 2rem;
+  }
+
+  .sidebar {
+    width: 50px;
+    // padding: 4px;
+  }
+
+  .main {
+    background: #f4f6f7;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  .container-fluid {
+    padding: 0;
+  }
+
+  .navbar-nav {
+    margin-top: 4rem !important;
+  }
+  .nav-item {
+    margin-right: 4px;
+    margin-left: 4px;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover,
+    &:focus,
+    &.active,
+    .uneditable-input:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0px;
+    }
+  }
+  .nav-item {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main {
+    padding: 0 10px !important;
+  }
+
+  .mobile_hide {
+    display: none !important;
+  }
+
+  .mobile_hidden {
+    display: none;
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  // .mobile_hidden {
+  //   display: none;
+  // }
+  .desktop_hidden {
+    display: none;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .desktop_hidden {
+    display: none;
+  }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .desktop_hidden {
+    display: none;
+  }
+}
+
+// X-Large devices (large desktops, less than 1400px)
+@media (min-width: 1200px) {
+  .desktop_hidden {
+    display: none;
+  }
+}

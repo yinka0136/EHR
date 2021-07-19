@@ -1,0 +1,61 @@
+<!-- Sidebar section -->
+<div class="sidebar pt-4 pb-5">
+  <div class="d-flex justify-content-center" routerLink="/">
+    <img src="../../../assets/images/blur_flag.png" class="logo" alt="" />
+  </div>
+
+  <!-- Navbar -->
+  <div>
+    <ul class="navbar-nav mt-4">
+      <div class="space">
+        <li class="nav-item click" routerLink="/home" routerLinkActive="active">
+          <a class="nav-link">
+            <img
+              src="../../../assets/images/users.png"
+              alt=""
+              class="me-2 mobile_hide"
+            />
+            <span class="mobile_hide"> Patient List </span>
+            <span class="desktop_hidden">PL</span>
+          </a>
+        </li>
+        <li
+          class="nav-item click"
+          routerLink="/register"
+          routerLinkActive="active"
+        >
+          <a class="nav-link">
+            <img
+              src="../../../assets/images/users.png"
+              alt=""
+              class="me-2 mobile_hide"
+            />
+            <span class="mobile_hide"> Register Patient </span>
+            <span class="desktop_hidden"> RP </span>
+          </a>
+        </li>
+      </div>
+      <div class="footer mobile_hide">
+        <h4 class="mb-3">Darlene Robertson</h4>
+      </div>
+      <li
+        class="click nav-item"
+        style="
+          background: rgba(255, 255, 255, 0.1) !important;
+          border-radius: 8px !important;
+          padding: 18px 22px !important;
+          margin-bottom: 34px !important;
+        "
+      >
+        <a class="nav-link" (click)="logOut()"
+          ><img
+            src="../../../assets/images/log-out.png"
+            alt=""
+            class="" />&nbsp;
+          <span class="mobile_hide">Logout</span>
+          <span class="desktop_hidden"></span
+        ></a>
+      </li>
+    </ul>
+  </div>
+</div>

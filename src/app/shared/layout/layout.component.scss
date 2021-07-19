@@ -1,0 +1,33 @@
+.main {
+  background: #f8f8f8;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.main::-webkit-scrollbar {
+  display: none;
+}
+.container-fluid {
+  padding: 0;
+}
+
+.sidebar_bg {
+  background: #06207a;
+}
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .nav_section {
+    padding: 10px;
+    h2 {
+      font-weight: 500;
+      font-size: 18px;
+      color: #04194d;
+    }
+    .not {
+      padding: 18px;
+      background: #ffffff;
+      box-shadow: 0px 2px 35px 5px rgb(4 25 77 / 6%);
+      border-radius: 64%;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+<div class="main_wrapper container-fluid">
+  <div class="row">
+    <div class="left_wrapper col-12 col-md-5 d-none d-lg-block">
+      <div class="left-wrapper__content">
+        <div class="logo-wrapper">
+          <img src="../../../assets/images/flag.png" class="" alt="" />
+        </div>
+        <div class="left_wrapper_asian">
+          <img src="../../../assets/images/asian.png" alt="" />
+        </div>
+        <div class="left_wrapper_text">
+          <h6 class="mb-4">Lorem ipsum</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisc</p>
+        </div>
+      </div>
+    </div>
+    <div class="right_wrapper col-12 col-md-7">
+      <div class="container">
+        <div class="right_wrapper_header">
+          <h4>
+            Sign in your
+            <span
+              >EHR <img src="../../../assets/images/line.png" alt="Header"
+            /></span>
+            account
+          </h4>
+        </div>
+        <div class="right_wrapper_form">
+          <form action="">
+            <div class="mb-4 form-group">
+              <input
+                type="email"
+                placeholder="Email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                autocomplete="email"
+              />
+            </div>
+            <div class="mb-3 form-group">
+              <input
+                type="{{ isPasswordHidden ? 'password' : 'text' }}"
+                placeholder="Password"
+                class="form-control"
+                id="password"
+                formControlName="password"
+                autocomplete="new-password"
+              />
+              <span class="click" (click)="toggleShow()"
+                ><img src="../../../assets/images/hide.png" alt=""
+              /></span>
+              <div class="invalid-feedback">Required</div>
+            </div>
+            <div class="forgot">
+              <a class="" href="">Forgot password?</a>
+            </div>
+            <div class="form-group col-12">
+              <button type="submit" class="btn" (click)="submit()">
+                Sign in
+              </button>
+            </div>
+            <p>
+              Dont have an account?
+              <span class="click">Meet up with the IT guy</span>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

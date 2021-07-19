@@ -1,0 +1,603 @@
+<div class="section">
+  <nav class="navbar navbar-expand-lg navbar-light my_nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Register Patient</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+        <div class="d-flex">
+          <div class="not">
+            <img
+              class="click"
+              src="../../../assets/images/notification.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img src="../../../assets/images/profile_avatar.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 pb-5">
+        <ul class="nav nav-pills mb-3 justify-content-between mt-5 px-5 tb">
+          <li
+            class="nav-item text-center active"
+            [ngClass]="{ active: currentStep === 'stepOne' }"
+          >
+            <img
+              class="current"
+              src="../../../assets/images/active.png"
+              alt=""
+              *ngIf="currentStep == 'stepOne'"
+            />
+            Patient Details
+          </li>
+          <li
+            class="nav-item text-center"
+            [ngClass]="{ active: currentStep === 'stepTwo' }"
+          >
+            <img
+              class="current"
+              src="../../../assets/images/active.png"
+              alt=""
+              *ngIf="currentStep == 'stepTwo'"
+            />
+            Other
+          </li>
+          <li
+            class="nav-item text-center"
+            [ngClass]="{ active: currentStep === 'stepThree' }"
+          >
+            <img
+              class="current"
+              src="../../../assets/images/active.png"
+              alt=""
+              *ngIf="currentStep == 'stepThree'"
+            />
+            Next of Kin
+          </li>
+          <li
+            class="nav-item text-center"
+            [ngClass]="{ active: currentStep === 'stepFour' }"
+          >
+            <img
+              class="current"
+              src="../../../assets/images/active.png"
+              alt=""
+              *ngIf="currentStep == 'stepFour'"
+            />
+            HMO
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="register_form" [@step]="currentStep">
+      <div class="stepOne" *ngIf="currentStep == 'stepOne'">
+        <form action="" [formGroup]="patientDetailsForm">
+          <div class="row">
+            <div class="col-12 col-md-4 mb-2">
+              <div class="drag" appDnd (fileDropped)="onFileDropped($event)">
+                <img
+                  src="../../../assets/images/img.png"
+                  alt=""
+                  class="mb-4"
+                  *ngIf="!selectedImage"
+                />
+                <img
+                  [src]="selectedImage"
+                  alt=""
+                  class="mb-4"
+                  *ngIf="selectedImage"
+                />
+                <p class="mb-4">Drag & Drop your picture here</p>
+                <label class="click" for="file">Upload Picture</label>
+              </div>
+              <input
+                (change)="addImg($event?.target)"
+                id="file"
+                class=""
+                type="file"
+                data-preview-file-type="text"
+                accept="image/*"
+                class="d-none"
+              />
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="form">
+                <div class="row justify-content-start">
+                  <div class="col-12 col-lg-2 mb-4">
+                    <select
+                      class="form-control"
+                      name=""
+                      formControlName="title"
+                      [ngClass]="{
+                        'is-invalid':
+                          (patientDetailsForm.get('title')?.errors &&
+                            patientDetailsForm.get('title')?.touched) ||
+                          (patientDetailsFormSubmitted &&
+                            patientDetailsForm.get('title')?.errors)
+                      }"
+                    >
+                      <option
+                        *ngFor="let title of titles"
+                        value="{{ title?.name }}"
+                      >
+                        {{ title?.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-lg-5">
+                    <div class="mb-4 form-group">
+                      <input
+                        type="text"
+                        placeholder="Patient Surname"
+                        class="form-control"
+                        id="surname"
+                        formControlName="surName"
+                        [ngClass]="{
+                          'is-invalid':
+                            (patientDetailsForm.get('surName')?.errors &&
+                              patientDetailsForm.get('surName')?.touched) ||
+                            (patientDetailsFormSubmitted &&
+                              patientDetailsForm.get('surName')?.errors)
+                        }"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-lg-5">
+                    <div class="mb-4 form-group">
+                      <input
+                        type="text"
+                        placeholder="Patient First Name"
+                        class="form-control"
+                        id="firstName"
+                        formControlName="firstName"
+                        [ngClass]="{
+                          'is-invalid':
+                            (patientDetailsForm.get('firstName')?.errors &&
+                              patientDetailsForm.get('firstName')?.touched) ||
+                            (patientDetailsFormSubmitted &&
+                              patientDetailsForm.get('firstName')?.errors)
+                        }"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-5">
+                    <div class="mb-4 form-group">
+                      <input
+                        type="text"
+                        placeholder="Middle Name"
+                        class="form-control"
+                        id="middleName"
+                        formControlName="middleName"
+                        [ngClass]="{
+                          'is-invalid':
+                            (patientDetailsForm.get('middleName')?.errors &&
+                              patientDetailsForm.get('middleName')?.touched) ||
+                            (patientDetailsFormSubmitted &&
+                              patientDetailsForm.get('middleName')?.errors)
+                        }"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-lg-5">
+                    <div class="mb-4 form-group">
+                      <input
+                        type="text"
+                        placeholder="Patient Phone Number"
+                        class="form-control"
+                        id="phoneNo"
+                        formControlName="phoneNo"
+                        [ngClass]="{
+                          'is-invalid':
+                            (patientDetailsForm.get('phoneNo')?.errors &&
+                              patientDetailsForm.get('phoneNo')?.touched) ||
+                            (patientDetailsFormSubmitted &&
+                              patientDetailsForm.get('phoneNo')?.errors)
+                        }"
+                        autocomplete=""
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-5">
+                    <div class="mb-4 form-group">
+                      <input
+                        type="email"
+                        placeholder="Patient Email"
+                        class="form-control"
+                        id="email"
+                        autocomplete="email"
+                        formControlName="email"
+                        [ngClass]="{
+                          'is-invalid':
+                            (patientDetailsForm.get('email')?.errors &&
+                              patientDetailsForm.get('email')?.touched) ||
+                            (patientDetailsFormSubmitted &&
+                              patientDetailsForm.get('email')?.errors)
+                        }"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-start">
+                  <div class="col-12 col-lg-2 mb-4">
+                    <select
+                      class="form-control"
+                      name=""
+                      formControlName="gender"
+                      [ngClass]="{
+                        'is-invalid':
+                          (patientDetailsForm.get('gender')?.errors &&
+                            patientDetailsForm.get('gender')?.touched) ||
+                          (patientDetailsFormSubmitted &&
+                            patientDetailsForm.get('gender')?.errors)
+                      }"
+                    >
+                      <option
+                        value="{{ gend?.name }}"
+                        *ngFor="let gend of gender"
+                      >
+                        {{ gend?.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-lg-4">
+                    <div class="mb-4 form-group">
+                      <input
+                        placeholder="Date of Birth (mm/dd/yy)"
+                        class="form-control"
+                        id="dob"
+                        formControlName="dob"
+                        [ngClass]="{
+                          'is-invalid':
+                            (patientDetailsForm.get('dob')?.errors &&
+                              patientDetailsForm.get('dob')?.touched) ||
+                            (patientDetailsFormSubmitted &&
+                              patientDetailsForm.get('dob')?.errors)
+                        }"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-start">
+                  <div class="col-12 col-lg-7">
+                    <div class="mb-4 form-group">
+                      <textarea
+                        id="address"
+                        name="address"
+                        placeholder="Patient Address"
+                        rows="5"
+                        class="form-control"
+                        cols="50"
+                        formControlName="address"
+                        [ngClass]="{
+                          'is-invalid':
+                            (patientDetailsForm.get('address')?.errors &&
+                              patientDetailsForm.get('address')?.touched) ||
+                            (patientDetailsFormSubmitted &&
+                              patientDetailsForm.get('address')?.errors)
+                        }"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-end">
+                  <div class="col-12 col-lg-4">
+                    <button
+                      class="btn btn-continue"
+                      (click)="nextStep('stepTwo')"
+                    >
+                      Continue
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="stepTwo" *ngIf="currentStep == 'stepTwo'">
+        <div class="form">
+          <form action="" [formGroup]="otherForm">
+            <div class="row justify-content-start">
+              <div class="col-12 col-lg-2">
+                <div class="mb-4 form-group">
+                  <select
+                    class="form-control"
+                    name=""
+                    formControlName="ethnicity"
+                  >
+                    <option value="" selected>Ethnicity</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-lg-2">
+                <div class="mb-4 form-group">
+                  <select
+                    class="form-control"
+                    name=""
+                    formControlName="religion"
+                  >
+                    <option value="" selected>Religion</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-lg-2">
+                <div class="mb-4 form-group">
+                  <select
+                    class="form-control"
+                    name=""
+                    formControlName="maritalStatus"
+                  >
+                    <option value="" selected>Marital Status</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <div class="mb-4 form-group">
+                  <input
+                    type="text"
+                    placeholder="Occupation"
+                    class="form-control"
+                    id="occupation"
+                    formControlName="occupation"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-start">
+              <div class="col-12 col-lg-auto">
+                <div class="mb-4 form-group">
+                  <input
+                    type="text"
+                    placeholder="BloodGroup"
+                    class="form-control"
+                    id="bloodGroup"
+                    formControlName="bloodGroup"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-lg-auto">
+                <div class="mb-4 form-group">
+                  <input
+                    type="text"
+                    placeholder="Patient Type"
+                    class="form-control"
+                    id="patientType"
+                    formControlName="patientType"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <div class="mb-4 form-group">
+                  <select
+                    class="form-control"
+                    name=""
+                    formControlName="nationality"
+                    placeholder="Nationality"
+                  >
+                    <option value="" selected>Nationality</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-lg-auto">
+                <div class="mb-4 form-group">
+                  <select
+                    class="form-control"
+                    name=""
+                    formControlName="stateOfOrigin"
+                    placeholder="stateOfOrigin"
+                  >
+                    <option value="" selected>State Of Origin</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col"></div>
+            </div>
+            <div class="row justify-content-start last">
+              <div class="col-12 col-lg-4">
+                <div class="mb-4 form-group">
+                  <select
+                    class="form-control"
+                    name=""
+                    formControlName="localGovernment"
+                    placeholder="Local Government"
+                  >
+                    <option value="" selected>Local Government</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-lg-3">
+                <div class="mb-4 form-group">
+                  <select
+                    class="form-control"
+                    name=""
+                    formControlName="stateOfResidence"
+                    placeholder="State Of Residence"
+                  >
+                    <option value="" selected>State Of Residence</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-12 col-lg-2 mb-2">
+                <button class="btn btn-back" (click)="previousStep('stepOne')">
+                  Back
+                </button>
+              </div>
+              <div class="col-12 col-lg-3">
+                <button
+                  class="btn btn-continue"
+                  (click)="nextStep('stepThree')"
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="stepThree" *ngIf="currentStep == 'stepThree'">
+        <div class="form">
+          <form action="" [formGroup]="nextOfKinForm">
+            <div class="row justify-content-start">
+              <div class="col-12 col-lg-4">
+                <div class="mb-4 form-group">
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    class="form-control"
+                    id="nokFullName"
+                    formControlName="nokFullName"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-lg-2">
+                <div class="mb-4 form-group">
+                  <input
+                    type="text"
+                    placeholder="Relationship"
+                    class="form-control"
+                    id="relationship"
+                    formControlName="relationship"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <div class="mb-4 form-group">
+                  <input
+                    type="text"
+                    placeholder="Patient Phone Number"
+                    class="form-control"
+                    id="nokPhoneNo"
+                    formControlName="nokPhoneNo"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-start last">
+              <div class="col-12 col-lg-5">
+                <div class="mb-4 form-group">
+                  <textarea
+                    id="address"
+                    name="address"
+                    placeholder="Patient Address"
+                    rows="5"
+                    class="form-control"
+                    cols="50"
+                    formControlName="nokAddress"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-12 col-lg-2 mb-2">
+                <button class="btn btn-back" (click)="previousStep('stepTwo')">
+                  Back
+                </button>
+              </div>
+              <div class="col-12 col-lg-3 mb-2">
+                <button class="btn btn-continue" (click)="nextStep('stepFour')">
+                  Continue
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="stepFour" *ngIf="currentStep == 'stepFour'">
+        <div class="form">
+          <form action="" [formGroup]="HMOForm">
+            <div class="row justify-content-start last">
+              <div class="col-12 col-lg-4">
+                <div class="mb-4 form-group">
+                  <input
+                    type="text"
+                    placeholder="Sponor Billing Policy"
+                    class="form-control"
+                    id="fullName"
+                    formControlName="billing"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-end">
+              <div class="col-12 col-lg-2 mb-2">
+                <button
+                  class="btn btn-back"
+                  (click)="previousStep('stepThree')"
+                >
+                  Back
+                </button>
+              </div>
+              <div class="col-12 col-lg-3">
+                <button class="btn btn-continue" (click)="submit()">
+                  Register Patient
+                  <i class="fa fa-spinner fa-spin" *ngIf="isLoading"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="registerModal"
+  tabindex="-1"
+  aria-labelledby="registerModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content content">
+      <div class="modal-header modal-head">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h5>Patient Registered Sucessfully</h5>
+        <div class="d-flex justify-content-center" style="padding: 0px 30px">
+          <button
+            type="button"
+            class="btn btn-continue"
+            data-bs-dismiss="modal"
+            routerLink="/home"
+          >
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-bs-dismiss="modal" #closeModal></div>
+</div>
+<div data-bs-target="#registerModal" data-bs-toggle="modal" #successModal></div>

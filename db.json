@@ -1,0 +1,70 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "imgUrl": "assets/images/avatar1.png",
+      "surName": "Ralph ",
+      "firstName": "Edwards",
+      "middleName": "string",
+      "email": "string",
+      "gender": "Male",
+      "dob": "08/18/1994",
+      "phoneNo": "+234 (0) 813409858",
+      "address": "3517 W. Gray St. Utica....."
+    },
+    {
+      "title": "Mr",
+      "surName": "Owolabi",
+      "firstName": "Olayinka",
+      "middleName": "Isaac",
+      "phoneNo": "09033785607",
+      "email": "iamyinka.owolabi@gmail.com",
+      "gender": "Male",
+      "dob": "08/18/1992",
+      "address": "No 15 Ahmafu A Ali Utako Nigeria",
+      "imgUrl": "assets/images/avatar4.png",
+      "id": 2
+    },
+    {
+      "title": "Mrs",
+      "surName": "Musa",
+      "firstName": "Funmilayo",
+      "middleName": "staff12",
+      "phoneNo": "09033785607",
+      "email": "yinka0136@gmail.com",
+      "gender": "Female",
+      "dob": "09/17/1997",
+      "address": "No 15 Ahmafu A Ali Utako Nigeria",
+      "imgUrl": "assets/images/avatar2.png",
+      "id": 3
+    },
+    {
+      "title": "Mrs",
+      "surName": "Musa",
+      "firstName": "Kyenpya",
+      "middleName": "staff12",
+      "phoneNo": "09033785607",
+      "email": "nosaowolabi@gmail.com",
+      "gender": "Female",
+      "dob": "09/17/1997",
+      "address": "No 15 Ahmafu A Ali Utako Nigeria",
+      "imgUrl": "assets/images/avatar3.png",
+      "id": 4
+    },
+    {
+      "title": "Mr",
+      "surName": "Usman",
+      "firstName": "Olaniyi",
+      "middleName": "Asiwaju",
+      "phoneNo": "09033785607",
+      "email": "nosaowolabi@gmail.com",
+      "gender": "Male",
+      "dob": "09/17/1997",
+      "address": "No 15 Ahmafu A Ali Utako Nigeria",
+      "imgUrl": {
+        "changingThisBreaksApplicationSecurity": "blob:http://localhost:4200/38804411-7973-42f6-9aec-fcf0b043368f"
+      },
+      "id": 5
+    }
+  ]
+}

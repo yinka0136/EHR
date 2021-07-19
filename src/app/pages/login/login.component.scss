@@ -1,0 +1,193 @@
+.main_wrapper {
+  .left_wrapper {
+    padding: 0 15px;
+    .logo-wrapper {
+      padding-left: 104px;
+      margin-top: 34px;
+    }
+    .left_wrapper_text {
+      text-align: center;
+      padding-right: 104px;
+      padding-left: 104px;
+      h6 {
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: 0.01em;
+        color: #102352;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: 0.01em;
+        color: #797979;
+      }
+    }
+  }
+  .right_wrapper {
+    padding: 174px 136px;
+    @media (max-width: 767px) {
+      margin-top: 30px;
+      padding: 10px;
+    }
+    .right_wrapper_header {
+      margin-bottom: 90px;
+      h4 {
+        font-weight: 600;
+        font-size: 50px;
+        @media (max-width: 767px) {
+          font-size: 46px;
+        }
+        line-height: 60px;
+        // display: flex;
+        align-items: center;
+        color: #102352;
+        span {
+          position: relative;
+          img {
+            position: absolute;
+            left: -10px;
+            bottom: -15px;
+          }
+        }
+      }
+    }
+    .right_wrapper_form {
+      input {
+        background: #ffffff;
+        border: 0.6px solid #d1d1d1;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 27px 40px;
+        &:hover,
+        &:focus {
+          box-shadow: none;
+          border: 0.6px solid #102352;
+        }
+      }
+      a {
+        font-size: 16px;
+        line-height: 149.3%;
+        letter-spacing: 0.01em;
+        color: #db3528;
+        opacity: 0.8;
+        margin-bottom: 105px;
+      }
+      .forgot {
+        margin-bottom: 105px;
+      }
+      button {
+        width: 100%;
+        padding: 25px 0px;
+        background: #2c61e4;
+        border-radius: 10px;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 149.3%;
+        margin-bottom: 20px;
+      }
+      p {
+        padding-left: 30px;
+        padding-right: 30px;
+        color: #7d7d7d;
+        font-size: 20px;
+        line-height: 149.3%;
+        span {
+          color: #102352;
+          font-weight: 600;
+        }
+      }
+      .form-group {
+        position: relative;
+        span {
+          position: absolute;
+          right: 30px;
+          top: 30px;
+        }
+      }
+    }
+  }
+}
+// .login-page {
+//   .left_wrapper {
+//     padding: 0 15px;
+//     .logo-wrapper {
+//       padding: 0;
+//     }
+//     .left-wrapper__content {
+//       img {
+//         width: 120%;
+//       }
+//       h1 {
+//         margin-bottom: 20px;
+//         font-weight: bold;
+//       }
+//     }
+//   }
+//   .right_wrapper {
+//     background: #fff;
+//     padding: 15px 5px;
+//     display: flex;
+//     flex-direction: column;
+//     .right-wrapper__header {
+//       padding: 20px 0;
+//       h2 {
+//         font-size: 50px;
+//         line-height: 1.2;
+//       }
+//     }
+//     form {
+//       flex: 1 0 auto;
+//       button {
+//         margin-top: 30px;
+//         width: 100%;
+//         font-weight: 500;
+//       }
+//       .btn-primary {
+//         background: #2c61e4;
+//       }
+//     }
+//   }
+// }
+
+// @media (min-width: 992px) {
+//   .login-page {
+//     .left_wrapper,
+//     .right_wrapper {
+//       padding: 0 5% 0;
+//       min-height: 100vh;
+//     }
+//     .left_wrapper {
+//       // position: fixed;
+//       top: 0;
+//       background: url("../../../assets/images/login-bg.svg") no-repeat center
+//         center;
+//       background-size: cover;
+//       display: flex;
+//       flex-direction: column;
+//       .logo-wrapper {
+//         padding: 30px 0;
+//       }
+//       .left-wrapper__content {
+//         display: block;
+//       }
+//     }
+//     .right_wrapper {
+//       left: 50%;
+//       padding-top: 50px;
+//       // padding-bottom: 15px;
+//     }
+//   }
+// }
+
+// @media (min-width: 1200px) {
+//   .login-page {
+//     .left_wrapper,
+//     .right_wrapper {
+//       padding-left: 10%;
+//       padding-right: 10%;
+//     }
+//   }
+// }

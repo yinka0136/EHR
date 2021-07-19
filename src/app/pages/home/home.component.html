@@ -1,0 +1,140 @@
+<div class="section">
+  <nav class="navbar navbar-expand-lg navbar-light my_nav">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="row" style="width: 100%">
+          <div class="col-12 col-lg-7 mb-2">
+            <input
+              #query
+              type="text"
+              (keyup)="filterPatients(query?.value)"
+              placeholder="Search for patient name"
+              class="form-control"
+            />
+          </div>
+          <div class="col-lg-2"></div>
+          <div
+            class="
+              col-12 col-lg-3
+              d-flex
+              align-items-center
+              justify-content-end
+            "
+          >
+            <div class="d-flex">
+              <div class="not">
+                <img
+                  class="click"
+                  src="../../../assets/images/notification.png"
+                  alt=""
+                />
+              </div>
+              <div>
+                <img src="../../../assets/images/profile_avatar.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="header">
+      <h2>Patient List</h2>
+    </div>
+
+    <div class="mat-elevation-z8">
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <table mat-table matSort [dataSource]="patients">
+        <!-- Image Column -->
+        <ng-container matColumnDef="imgUrl">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+          <td mat-cell *matCellDef="let element">
+            <img src="{{ element.imgUrl }}" alt="" />
+          </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>NAME</th>
+          <td mat-cell *matCellDef="let element" class="bold">
+            {{ element.surName }} {{ element.firstName }}
+          </td>
+        </ng-container>
+
+        <!-- Gender Column -->
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>GENDER</th>
+          <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
+        </ng-container>
+
+        <!-- Age Column -->
+        <ng-container matColumnDef="age">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>AGE</th>
+          <td mat-cell *matCellDef="let element">{{ element.dob | age }}</td>
+        </ng-container>
+
+        <!-- Telephone Column -->
+        <ng-container matColumnDef="phoneNo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            PHONE NUMBER
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.phoneNo }}</td>
+        </ng-container>
+
+        <!-- Address Column -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ADDRESS</th>
+          <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="viewProfile">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-button
+              color="primary"
+              (click)="viewProfile(element.name)"
+            >
+              View Profile
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <!-- <mat-paginator
+        [pageSize]="7"
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+      ></mat-paginator> -->
+    </div>
+  </div>
+</div>
+<!-- <tr *ngFor="let patient of patients">
+                <td>
+                  <img src="{{ patient.imgUrl }}" alt="" />
+                </td>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.gender }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.phoneNo }}</td>
+                <td>{{ patient.address }}</td>
+                <td>
+                  <button class="btn btn-primary btn-sm">View profile</button>
+                </td>
+              </tr> -->
